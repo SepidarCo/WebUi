@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Site", "Site\Site.csproj", "{CC63C148-CCFC-40D5-BF6F-A5C43F1B3CD6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Admin", "Admin\Admin.csproj", "{A081864B-C83A-4888-9FA9-F25A289BA47B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web", "Web\Web.csproj", "{9A3652A9-D2AE-45C6-8D15-1D8DE1786110}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC63C148-CCFC-40D5-BF6F-A5C43F1B3CD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC63C148-CCFC-40D5-BF6F-A5C43F1B3CD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC63C148-CCFC-40D5-BF6F-A5C43F1B3CD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC63C148-CCFC-40D5-BF6F-A5C43F1B3CD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A081864B-C83A-4888-9FA9-F25A289BA47B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A081864B-C83A-4888-9FA9-F25A289BA47B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A081864B-C83A-4888-9FA9-F25A289BA47B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A081864B-C83A-4888-9FA9-F25A289BA47B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A3652A9-D2AE-45C6-8D15-1D8DE1786110}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A3652A9-D2AE-45C6-8D15-1D8DE1786110}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A3652A9-D2AE-45C6-8D15-1D8DE1786110}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A3652A9-D2AE-45C6-8D15-1D8DE1786110}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9231538E-E644-4F93-893B-9B709BF1537F}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://sepidarco.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Site\\Site.csproj
+		SccProjectName1 = Site
+		SccLocalPath1 = Site
+		SccProjectUniqueName2 = Admin\\Admin.csproj
+		SccProjectName2 = Admin
+		SccLocalPath2 = Admin
+		SccProjectUniqueName3 = Web\\Web.csproj
+		SccProjectName3 = Web
+		SccLocalPath3 = Web
+	EndGlobalSection
+EndGlobal

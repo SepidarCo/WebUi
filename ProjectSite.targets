@@ -1,0 +1,32 @@
+<Project >
+
+  <Import Project="$(SepidarProjectsRoot)\Framework\ProjectDotNet.targets" />
+  <Import Project="$(SepidarProjectsRoot)\Framework\ProjectMvc.targets" />
+  <Import Project="$(SepidarProjectsRoot)\Framework\Project.targets" />
+
+  <ItemGroup>
+    <Reference Include="Sepidar.Web">
+      <HintPath>$(SepidarProjectsRoot)\WebUi\Assemblies\Sepidar.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Sepidar.Security">
+      <HintPath>..\..\Framework\Assemblies\Sepidar.Security.dll</HintPath>
+    </Reference>
+
+    <Reference Include="Sepidar.Validation">
+      <HintPath>..\..\Framework\Assemblies\Sepidar.Validation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.0.3" />
+  </ItemGroup>
+
+</Project>

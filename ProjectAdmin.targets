@@ -1,0 +1,38 @@
+<Project>
+
+  <Import Project="$(SepidarProjectsRoot)\Framework\ProjectDotNet.targets" />
+
+  <ItemGroup>
+    <Reference Include="Sepidar.Admin">
+      <HintPath>$(SepidarProjectsRoot)\WebUi\Assemblies\Sepidar.Admin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Admin\Styles\Admin.css">
+      <Link>wwwroot\Styles\Admin.css</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Admin\Scripts\Site.js">
+      <Link>wwwroot\Scripts\Site.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Admin\Images\loader.gif">
+      <Link>wwwroot\Images\loader.gif</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Admin\Images\favicon.ico">
+      <Link>wwwroot\Images\favicon.ico</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+  </ItemGroup>
+
+  <Import Project="$(SepidarProjectsRoot)\WebUi\ProjectWeb.targets" />
+
+</Project>

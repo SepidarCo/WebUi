@@ -1,0 +1,208 @@
+<Project >
+
+  <ItemGroup>
+    <Reference Include="Sepidar.Web">
+      <HintPath>$(SepidarProjectsRoot)\WebUi\Assemblies\Sepidar.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Sepidar.Security">
+      <HintPath>..\..\Framework\Assemblies\Sepidar.Security.dll</HintPath>
+    </Reference>
+
+    <Reference Include="Sepidar.Validation">
+      <HintPath>..\..\Framework\Assemblies\Sepidar.Validation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Web\Scripts\ThirdParties\jquery\jquery-3.5.1.js">
+      <Link>wwwroot\Scripts\ThirdParties\Jquery\jquery-3.5.1.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Web\Scripts\ThirdParties\jquery\jquery-3.5.1.min.js">
+      <Link>wwwroot\Scripts\ThirdParties\Jquery\jquery-3.5.1.min.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Web\Scripts\ThirdParties\jquery\apps.js">
+      <Link>wwwroot\Scripts\ThirdParties\Jquery\apps.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Web\Scripts\ThirdParties\jquery\apps.min.js">
+      <Link>wwwroot\Scripts\ThirdParties\Jquery\apps.min.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Web\Scripts\ThirdParties\pace\pace.js">
+      <Link>wwwroot\Scripts\ThirdParties\pace\pace.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Web\Scripts\ThirdParties\pace\pace.min.js">
+      <Link>wwwroot\Scripts\ThirdParties\pace\pace.min.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Web\Scripts\ThirdParties\ckeditor\ckeditor.js">
+      <Link>wwwroot\Scripts\ThirdParties\ckeditor\ckeditor.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Web\Scripts\ThirdParties\jquery\jquery-ui.js">
+      <Link>wwwroot\Scripts\ThirdParties\jquery\jquery-ui.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Web\Scripts\ThirdParties\bootstrap\js\bootstrap.bundle.js">
+      <Link>wwwroot\Scripts\ThirdParties\bootstrap\js\bootstrap.bundle.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Web\Scripts\ThirdParties\bootstrap\js\bootstrap.js">
+      <Link>wwwroot\Scripts\ThirdParties\bootstrap\js\bootstrap.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Web\Scripts\ThirdParties\fontawesome\all.js">
+      <Link>wwwroot\Scripts\ThirdParties\fontawesome\all.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Web\Styles\ThirdParties\webfonts\fa-solid-900.woff2">
+      <Link>wwwroot\Styles\ThirdParties\webfonts\fa-solid-900.woff2</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Web\Styles\ThirdParties\webfonts\fa-brands-400.woff2">
+      <Link>wwwroot\Styles\ThirdParties\webfonts\fa-brands-400.woff2</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Web\Scripts\ThirdParties\slimscroll\jquery.slimscroll.js">
+      <Link>wwwroot\Scripts\ThirdParties\slimscroll\jquery.slimscroll.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Web\Scripts\ThirdParties\slimscroll\jquery.slimscroll.min.js">
+      <Link>wwwroot\Scripts\ThirdParties\slimscroll\jquery.slimscroll.min.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Web\Scripts\ThirdParties\cookie\js.cookie.js">
+      <Link>wwwroot\Scripts\ThirdParties\cookie\js.cookie.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Web\Scripts\ThirdParties\material\material.min.js">
+      <Link>wwwroot\Scripts\ThirdParties\material\material.min.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Web\Scripts\ThirdParties\material\material.min.js">
+      <Link>wwwroot\Scripts\ThirdParties\material\material.min.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Web\Scripts\ThirdParties\gritter\js\jquery.gritter.js">
+      <Link>wwwroot\Scripts\ThirdParties\gritter\js\jquery.gritter.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Web\Scripts\ThirdParties\gritter\js\jquery.gritter.min.js">
+      <Link>wwwroot\Scripts\ThirdParties\gritter\js\jquery.gritter.min.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Web\Scripts\ThirdParties\flot\jquery.flot.min.js">
+      <Link>wwwroot\Scripts\ThirdParties\flot\jquery.flot.min.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Web\Scripts\ThirdParties\flot\jquery.flot.pie.js">
+      <Link>wwwroot\Scripts\ThirdParties\flot\jquery.flot.pie.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Web\Scripts\ThirdParties\flot\jquery.flot.resize.js">
+      <Link>wwwroot\Scripts\ThirdParties\flot\jquery.flot.resize.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Web\Scripts\ThirdParties\flot\jquery.flot.time.js">
+      <Link>wwwroot\Scripts\ThirdParties\flot\jquery.flot.time.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Web\Scripts\ThirdParties\sparkline\jquery.sparkline.js">
+      <Link>wwwroot\Scripts\ThirdParties\sparkline\jquery.sparkline.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Web\Scripts\ThirdParties\sparkline\jquery.sparkline.min.js">
+      <Link>wwwroot\Scripts\ThirdParties\sparkline\jquery.sparkline.min.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Web\Styles\ThirdParties\animate\animate.min.css">
+      <Link>wwwroot\Styles\ThirdParties\animate\animate.min.css</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Web\Styles\ThirdParties\bootstrap\bootstrap.css">
+      <Link>wwwroot\Styles\ThirdParties\bootstrap\bootstrap.css</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Web\Styles\ThirdParties\font-awesome\fontawesome-all.min.css">
+      <Link>wwwroot\Styles\ThirdParties\font-awesome\fontawesome-all.min.css</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Web\Styles\ThirdParties\jquery-ui\jquery-ui.min.css">
+      <Link>wwwroot\Styles\ThirdParties\jquery-ui\jquery-ui.min.css</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Web\Styles\ThirdParties\material\default.css">
+      <Link>wwwroot\Styles\ThirdParties\material\default.css</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Web\Styles\ThirdParties\material\style.css">
+      <Link>wwwroot\Styles\ThirdParties\material\style.css</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Web\Styles\ThirdParties\material\style-responsive.css">
+      <Link>wwwroot\Styles\ThirdParties\material\style-responsive.css</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Web\Styles\ThirdParties\material\style-responsive.min.css">
+      <Link>wwwroot\Styles\ThirdParties\material\style-responsive.min.css</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="$(SepidarProjectsRoot)\WebUi\Web\Styles\ThirdParties\bootstrap\all.css">
+      <Link>wwwroot\Styles\ThirdParties\bootstrap\all.css</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.0.3" />
+  </ItemGroup>
+
+  <Import Project="$(SepidarProjectsRoot)\Framework\ProjectMvc.targets" />
+  <Import Project="$(SepidarProjectsRoot)\Framework\Project.targets" />
+
+</Project>
