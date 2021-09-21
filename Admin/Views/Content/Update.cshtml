@@ -1,0 +1,59 @@
+﻿@model Sepidar.Admin.Models.ContentModel
+
+@{
+    Layout = "/Views/Shared/_Update.cshtml";
+}
+
+@section UpdateBody {
+    @using (Html.BeginForm("Update", "Content", null, FormMethod.Post))
+    {
+        <div class="modal-body">
+
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(x => x.Id, new { @data_role = "post-field" })
+
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    @Html.LabelFor(x => x.PictureFile, new { @class = "control-label" })
+                    <input type="file" name="PictureFile" id="PictureFile" class="btn btn-info form-control" data-role="post-file" />
+                </div>
+            </div>
+
+            @{ if (Sepidar.Admin.Config.HasLanguageInGallery)
+                {
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            @Html.LabelFor(x => x.LanguageId, new { @class = "control-label" })
+                            @await Html.PartialAsync("../Shared/_LanguageDropdown.cshtml", Model)
+                        </div>
+                    </div>
+                }
+            }
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    @Html.LabelFor(x => x.Title, new { @class = "control-label" })
+                    @Html.TextBoxFor(x => x.Title, new { @class = "form-control", @data_role = "post-field" })
+                </div>
+                <div class="col-md-6 form-group">
+                    @Html.LabelFor(x => x.OrderNumber, new { @class = "control-label" })
+                    @Html.TextBoxFor(x => x.OrderNumber, new { @class = "form-control", @type = "number", @data_role = "post-field" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    @Html.LabelFor(x => x.Description, new { @class = "control-label" })
+                    @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @data_role = "post-field" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    @Html.CheckBoxFor(x => x.IsActive, new { @class = "control-label", @data_role = "post-field" })
+                    @Html.LabelFor(x => x.IsActive, new { @class = "control-label" })
+                </div>
+            </div>
+        </div>
+
+        @Html.Partial("_ModalFooter")
+    }
+}

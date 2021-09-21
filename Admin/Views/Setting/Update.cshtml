@@ -1,0 +1,112 @@
+﻿@model Sepidar.Admin.Models.SettingModel
+
+@{
+    Layout = "/Views/Shared/_Update.cshtml";
+}
+
+@section UpdateBody {
+    @using (Html.BeginForm("Update", "Setting", null, FormMethod.Post))
+    {
+        <div class="modal-body">
+
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(x => x.Id, new { @data_role = "post-field" })
+
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    @Html.LabelFor(x => x.SiteName, new { @class = "control-label" })
+                    @Html.TextBoxFor(x => x.SiteName, new { @class = "form-control", @data_role = "post-field" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    @Html.LabelFor(x => x.Keyword, new { @class = "control-label" })
+                    @Html.TextBoxFor(x => x.Keyword, new { @class = "form-control", @data_role = "post-field" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    @Html.LabelFor(x => x.Description, new { @class = "control-label" })
+                    @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @data_role = "post-field" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    @Html.LabelFor(x => x.Copyright, new { @class = "control-label" })
+                    @Html.TextAreaFor(x => x.Copyright, new { @class = "form-control", @data_role = "post-field" })
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    @Html.LabelFor(x => x.Telephone, new { @class = "control-label" })
+                    @Html.TextBoxFor(x => x.Telephone, new { @class = "form-control", @data_role = "post-field" })
+                </div>
+                <div class="col-md-6 form-group">
+                    @Html.LabelFor(x => x.Fax, new { @class = "control-label" })
+                    @Html.TextBoxFor(x => x.Fax, new { @class = "form-control", @data_role = "post-field" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    @Html.LabelFor(x => x.Address, new { @class = "control-label" })
+                    @Html.TextBoxFor(x => x.Address, new { @class = "form-control", @data_role = "post-field" })
+                </div>
+                <div class="col-md-6 form-group">
+                    @Html.LabelFor(x => x.Email, new { @class = "control-label" })
+                    @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @data_role = "post-field" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    @Html.LabelFor(x => x.Map, new { @class = "control-label" })
+                    @Html.TextBoxFor(x => x.Map, new { @class = "form-control", @data_role = "post-field" })
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    @Html.LabelFor(x => x.Instagram, new { @class = "control-label" })
+                    @Html.TextBoxFor(x => x.Instagram, new { @class = "form-control", @data_role = "post-field" })
+                </div>
+                <div class="col-md-6 form-group">
+                    @Html.LabelFor(x => x.Facebook, new { @class = "control-label" })
+                    @Html.TextBoxFor(x => x.Facebook, new { @class = "form-control", @data_role = "post-field" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    @Html.LabelFor(x => x.LinkedIn, new { @class = "control-label" })
+                    @Html.TextBoxFor(x => x.LinkedIn, new { @class = "form-control", @data_role = "post-field" })
+                </div>
+                <div class="col-md-6 form-group">
+                    @Html.LabelFor(x => x.TikTok, new { @class = "control-label" })
+                    @Html.TextBoxFor(x => x.TikTok, new { @class = "form-control", @data_role = "post-field" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    @Html.LabelFor(x => x.Youtube, new { @class = "control-label" })
+                    @Html.TextBoxFor(x => x.Youtube, new { @class = "form-control", @data_role = "post-field" })
+                </div>
+                <div class="col-md-6 form-group">
+                    @Html.LabelFor(x => x.Whatsapp, new { @class = "control-label" })
+                    @Html.TextBoxFor(x => x.Whatsapp, new { @class = "form-control", @data_role = "post-field" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    @Html.LabelFor(x => x.Twitter, new { @class = "control-label" })
+                    @Html.TextBoxFor(x => x.Twitter, new { @class = "form-control", @data_role = "post-field" })
+                </div>
+                <div class="col-md-6 form-group">
+                    @Html.LabelFor(x => x.Pinterest, new { @class = "control-label" })
+                    @Html.TextBoxFor(x => x.Pinterest, new { @class = "form-control", @data_role = "post-field" })
+                </div>
+            </div>
+        </div>
+        @Html.Partial("_ModalFooter")
+    }
+}

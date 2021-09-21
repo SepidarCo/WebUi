@@ -1,0 +1,54 @@
+﻿
+@RenderSection("Model", false)
+
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = ViewBag.Title;
+}
+
+<div class="row">
+    <div class="col-md-9 form-group">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+    <div class="col-md-2 form-group">
+        @RenderSection("Filters", false)
+    </div>
+    <div class="col-md-1 form-group">
+        @*<button type="button" class="btn btn-info w-100" id="btn-new">
+            <span class="fa fa-plus"></span>&nbsp;New
+        </button>*@
+    </div>
+</div>
+
+<hr class="header-divider" />
+
+<table class="table table-hover table-striped">
+    <thead class="thead-light">
+        <tr>
+            @RenderSection("RowHeaders", false)
+        </tr>
+    </thead>
+
+    <tbody>
+        @RenderSection("Rows", false)
+    </tbody>
+
+    <tfoot>
+        <tr>
+            <td colspan="6">
+                <ul class="pagination">
+                    @RenderSection("Paging", false)
+                </ul>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
+@RenderSection("ActiveMenu", false)
+
+@RenderSection("ListScripts", false)
+
+@RenderBody()

@@ -1,0 +1,63 @@
+﻿@model Sepidar.Admin.Models.CalendarModel
+
+<div class="modal-body">
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(x => x.Id)
+
+    <div class="row">
+        <div class="col-md-6 form-group">
+            @Html.LabelFor(x => x.Title, new { @class = "control-label" })
+            @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+        </div>
+        <div class="col-md-6 form-group">
+            @Html.LabelFor(x => x.OrderNumber, new { @class = "control-label" })
+            @Html.TextBoxFor(x => x.OrderNumber, new { @class = "form-control", @type = "number" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 form-group">
+            @Html.LabelFor(x => x.Date, new { @class = "control-label" })
+            @Html.TextBoxFor(x => x.Date, "{0:yyyy-MM-dd}", new { @class = "form-control" })
+        </div>
+        <div class="col-md-6 form-group">
+            @Html.LabelFor(x => x.ShortDate, new { @class = "control-label" })
+            @Html.TextBoxFor(x => x.ShortDate, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 form-group">
+            @Html.LabelFor(x => x.Address, new { @class = "control-label" })
+            @Html.TextBoxFor(x => x.Address, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 form-group">
+            @Html.LabelFor(x => x.LinkUrl, new { @class = "control-label" })
+            @Html.TextBoxFor(x => x.LinkUrl, new { @class = "form-control" })
+        </div>
+    </div>
+
+    @{ if (Sepidar.Admin.Config.HasLanguageInCalendar)
+        {
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    @Html.LabelFor(x => x.LanguageId, new { @class = "control-label" })
+                    @await Html.PartialAsync("../Shared/_LanguageDropdown.cshtml")
+                </div>
+            </div>
+        }
+    }
+
+    <div class="row">
+        <div class="col-md-12 form-group">
+            @Html.CheckBoxFor(x => x.IsActive)
+            @Html.LabelFor(x => x.IsActive, new { @class = "control-label" })
+        </div>
+    </div>
+
+</div>
+
+@Html.Partial("_ModalFooter")

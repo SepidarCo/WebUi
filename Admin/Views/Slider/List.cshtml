@@ -1,0 +1,139 @@
+﻿@section Model{
+    @model Sepidar.Framework.ListResult<Sepidar.Admin.Models.SliderModel>
+}
+
+@{
+    Layout = "/Views/Shared/_WindowList.cshtml";
+    ViewBag.Title = "Slider";
+}
+
+@if (Sepidar.Admin.Config.HasLanguageInSlider)
+{
+    @section Filters {
+        @await Html.PartialAsync("../Shared/_FilterLanguageDropdown.cshtml", (long)ViewBag.FilterLanguageId)
+    }
+}
+
+@section Rows {
+    @if (Model != null)
+    {
+        foreach (var item in Model.Data)
+        {
+            <div class="col-md-3 image gallery-group-1 isotope-item">
+                <div class="image-inner">
+                    <a class="image-container" href="#">
+                        <img src="@item.PhotoUrl" class="card-img-top img-fluid rounded img-shadow disabled" />
+                    </a>
+                    @if (!item.IsActive)
+                    {
+                        <p class="image-caption">Deactive</p>
+                    }
+                </div>
+                <div class="image-info">
+                    <h5 class="text-center">@item.Title</h5>
+                    <div class="desc text-center">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-link text-indigo" data-click="update" data-id="@item.Id"><span class="fa fa-edit"></span></button>
+                            <button type="button" class="btn btn-sm btn-link text-danger" data-click="delete" data-id="@item.Id"><span class="fa fa-trash"></span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+}
+
+@section Paging{
+    @{
+        var pageCount = Model.TotalCount / Model.PageSize;
+        if (Model.TotalCount % Model.PageSize > 0)
+            pageCount++;
+
+        <li data-page="1">
+            <a asp-area="" asp-controller="Gallery" class="" asp-action="List" asp-route-pageNumber="1">First</a>
+        </li>
+
+        for (int pageNumber = 1; pageNumber <= pageCount; pageNumber++)
+        {
+            <li data-page="@pageNumber">
+                @if (Model.PageNumber == pageNumber)
+                {
+                    <a asp-area="" asp-controller="Gallery" class="btn btn-info" asp-action="List" asp-route-pageNumber="@pageNumber">@pageNumber</a>
+                }
+                else
+                {
+                    <a asp-area="" asp-controller="Gallery" asp-action="List" asp-route-pageNumber="@pageNumber">@pageNumber</a>
+                }
+            </li>
+        }
+
+        <li data-page="@pageCount">
+            <a asp-area="" asp-controller="Gallery" class="" asp-action="List" asp-route-pageNumber="@pageCount">Last</a>
+        </li>
+    }
+}
+
+@section ActiveMenu{
+    <input type="hidden" name="ActiveLink" id="ActiveLink" data-parent="home" data-current="slider" />
+}
+
+@section ListScripts{
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            var hasLanguage = '@Sepidar.Admin.Config.HasLanguageInSlider';
+
+            $("#btn-new").click(function () {
+
+                var btn = $(this);
+                var url;
+                var data = { "filterLanguageId": $("#FilterLanguageId").val() };
+
+                openModalWithFile(btn, '@Url.Action("Create","Slider")', data, function (e) {
+                    $("#modal-place").modal("hide");
+
+                    if (hasLanguage = true) {
+                         url = '@Url.Action("List","Slider")' + `?filterLanguageId =${e}`;
+                    } else {
+                        url = '@Url.Action("List","Slider")';
+                    }
+                    window.location.href = url;
+                }, function () {
+                    prepareCkEditor('#Description')
+                });
+            });
+
+           $("button[data-click=update]").click(function () {
+               var id = $(this).data("id");
+               var btn = $(this);
+               var url = '@Url.Action("Update","Slider")';
+               var data = { "id": id };
+               openModalWithFile(btn, url, data, function (e) {
+                    $("#modal-place").modal("hide");
+                    window.location.href = '@Url.Action("List","Slider")' + `?filterLanguageId=${e}`;
+               }, function () {
+                   prepareCkEditor('#Description')
+               });
+           });
+
+            $("button[data-click=delete]").click(function () {
+                var btn = $(this);
+                var itemId = $(this).data("id");
+                var url = '@Url.Action("Delete","Slider")';
+                onClickShowModal(btn, url, { "id": itemId }, function () {
+                    $("#modal-place").modal("hide");
+                    window.location.reload();
+                });
+            });
+
+            $("#FilterLanguageId").change(function () {
+                var langId = $(this).val();
+                window.location.href = '@Url.Action("List","Slider")' + `?filterLanguageId=${langId}`;
+             });
+
+        });
+
+    </script>
+}

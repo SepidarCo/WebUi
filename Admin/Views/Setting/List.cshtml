@@ -1,0 +1,62 @@
+﻿@section Model{
+    @model IEnumerable<Sepidar.Admin.Models.SettingModel>
+}
+
+@{
+    Layout = "/Views/Shared/_EmptyList.cshtml";
+    ViewBag.Title = "Setting";
+}
+
+@section Filters {
+
+}
+
+@section RowHeaders {
+    <th scope="col">Title</th>
+    <th scope="col">Telephone</th>
+    <th scope="col">Email</th>
+    <th scope="col"></th>
+}
+
+@section Rows {
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.SiteName</td>
+            <td>@item.Telephone</td>
+            <td>@item.Email</td>
+            <td class="text-right">
+                <button type="button" class="btn btn-link text-indigo" data-click="update" data-id="@item.Id"><span class="fa fa-edit"></span></button>
+            </td>
+        </tr>
+    }
+}
+
+@section Paging{
+
+}
+
+@section ActiveMenu{
+    <input type="hidden" name="ActiveLink" id="ActiveLink" data-parent="home" data-current="setting" />
+}
+
+@section ListScripts{
+
+    <script type="text/javascript">
+
+          $("button[data-click=update]").click(function () {
+            var btn = $(this);
+            var itemId = $(this).data("id");
+            var url = '@Url.Action("Update", "setting")';
+            var data = { "id": itemId };
+             openModalWithFile(btn, url, data, function (e) {
+                $("#modal-place").modal("hide");
+                var url = '@Url.Action("List","Setting")';
+                window.location.href = url;
+            }, function () {
+                prepareCkEditor();
+            });
+        });
+
+    </script>
+}

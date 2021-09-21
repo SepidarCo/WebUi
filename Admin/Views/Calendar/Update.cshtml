@@ -1,0 +1,12 @@
+﻿@{
+    Layout = "/Views/Shared/_Update.cshtml";
+}
+
+@section UpdateBody {
+
+    @using (Html.BeginForm("Update", "Calendar", null, FormMethod.Post))
+    {
+        @Html.Partial("Upsert")
+    }
+
+}

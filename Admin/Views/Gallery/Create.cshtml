@@ -1,0 +1,11 @@
+﻿@{
+    Layout = "/Views/Shared/_Create.cshtml";
+}
+
+@section CreateBody{
+
+    @using (Html.BeginForm("Create", "Gallery", null, FormMethod.Post, true, new { enctype = "multipart/form-data" }))
+    {
+        @Html.Partial("Upsert")
+    }
+}

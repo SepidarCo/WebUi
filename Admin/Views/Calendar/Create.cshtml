@@ -1,0 +1,11 @@
+﻿@{
+    Layout = "/Views/Shared/_Create.cshtml";
+}
+
+@section CreateBody{
+
+    @using (Html.BeginForm("Create", "Calendar", null, FormMethod.Post))
+    {
+        @Html.Partial("Upsert")
+    }
+}

@@ -1,0 +1,12 @@
+﻿@{
+    Layout = "/Views/Shared/_Update.cshtml";
+}
+
+@section UpdateBody {
+
+    @using (Html.BeginForm("Update", "Gallery", null, FormMethod.Post, true, new { enctype = "multipart/form-data" }))
+    {
+        @Html.Partial("Upsert")
+    }
+}
+

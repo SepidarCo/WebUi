@@ -1,0 +1,60 @@
+﻿@model Sepidar.Admin.Models.UserModel
+
+@using (Html.BeginForm("Update", "User", null, FormMethod.Post, true, new { enctype = "multipart/form-data" }))
+{
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Edit User</div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span area-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(x => x.Id)
+
+                <div class="row">
+                    <div class="col-md-12 form-group">
+                        @Html.LabelFor(x => x.PictureFile)
+                        <input type="file" name="PictureFile" id="PictureFile" class="btn btn-info form-control" data-role="post-file" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        @Html.LabelFor(x => x.Username, new { @class = "control-lable" })
+                        @Html.TextBoxFor(x => x.Username, new { @class = "form-control", @data_role = "post-field" })
+                    </div>
+                    <div class="col-md-6 form-group">
+                        @Html.LabelFor(x => x.Password, new { @class = "control-lable" })
+                        @Html.TextBoxFor(x => x.Password, new { @class = "form-control", @type = "password", @data_role = "post-field" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        @Html.LabelFor(x => x.FullName, new { @class = "control-lable" })
+                        @Html.TextBoxFor(x => x.FullName, new { @class = "form-control", @data_role = "post-field" })
+                    </div>
+                    <div class="col-md-6 form-group">
+                        @Html.LabelFor(x => x.MobileNumber, new { @class = "control-lable" })
+                        @Html.TextBoxFor(x => x.MobileNumber, new { @class = "form-control", @data_role = "post-field" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 form-group">
+                        @Html.LabelFor(x => x.Email, new { @class = "control-lable" })
+                        @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @data_role = "post-field" })
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-info" data-role="submit-partial">Save</button>
+                </div>
+                @Html.ValidationSummary(false, "Error:", new { @class = "alert alert-danger" })
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,129 @@
+﻿@section Model{
+    @model Sepidar.Framework.ListResult<Sepidar.Admin.Models.CalendarModel>
+}
+
+@{
+    Layout = "/Views/Shared/_List.cshtml";
+    ViewBag.Title = "Calendar";
+}
+
+@if (Sepidar.Admin.Config.HasLanguageInCalendar)
+{
+    @section Filters {
+        @await Html.PartialAsync("../Shared/_FilterLanguageDropdown.cshtml", (long)ViewBag.FilterLanguageId)
+    }
+}
+
+@section RowHeaders {
+    <th scope="col">OrderNumber</th>
+    <th scope="col">Title</th>
+    <th scope="col">ShortDate</th>
+    <th scope="col">Date</th>
+    <th scope="col">Address</th>
+    <th scope="col">Active</th>
+    <th scope="col"></th>
+}
+
+@section Rows {
+
+    @foreach (var item in Model.Data)
+    {
+        <tr>
+            <td>@item.OrderNumber</td>
+            <td>@item.Title</td>
+            <td>@item.ShortDate</td>
+            <td>@item.Date</td>
+            <td>@item.Address</td>
+            <td><input type="checkbox" @(item.IsActive ? "checked=checked" : "") onclick="return false;" /></td>
+            <td class="text-right">
+                <button type="button" class="btn btn-link text-danger" data-click="delete" data-id="@item.Id"><span class="fa fa-trash"></span></button>
+                <button type="button" class="btn btn-link text-indigo" data-click="update" data-id="@item.Id"><span class="fa fa-edit"></span></button>
+            </td>
+        </tr>
+    }
+}
+
+@section Paging{
+    @{
+        var pageCount = Model.TotalCount / Model.PageSize;
+        if (Model.TotalCount % Model.PageSize > 0)
+            pageCount++;
+
+        <li data-page="1">
+            <a asp-area="" asp-controller="Calendar" class="" asp-action="List" asp-route-pageNumber="1">First</a>
+        </li>
+
+        for (int pageNumber = 1; pageNumber <= pageCount; pageNumber++)
+        {
+            <li data-page="@pageNumber">
+                @if (Model.PageNumber == pageNumber)
+                {
+                    <a asp-area="" asp-controller="Calendar" class="btn btn-info" asp-action="List" asp-route-pageNumber="@pageNumber">@pageNumber</a>
+                }
+                else
+                {
+                    <a asp-area="" asp-controller="Calendar" asp-action="List" asp-route-pageNumber="@pageNumber">@pageNumber</a>
+                }
+            </li>
+        }
+
+        <li data-page="@pageCount">
+            <a asp-area="" asp-controller="Calendar" class="" asp-action="List" asp-route-pageNumber="@pageCount">Last</a>
+        </li>
+    }
+}
+
+@section ActiveMenu{
+    <input type="hidden" name="ActiveLink" id="ActiveLink" data-parent="home" data-current="calendar" />
+}
+
+@section ListScripts{
+
+    <script type="text/javascript">
+
+        var hasLanguage = '@Sepidar.Admin.Config.HasLanguageInCalendar'
+
+           $("#btn-new").click(function () {
+
+               var btn = $(this);
+               var url;
+               var data = { "filterLanguageId": $("#FilterLanguageId").val() };
+
+               onClickShowModal(btn, '@Url.Action("Create","Calendar")', data, function (e) {
+                   $("#modal-place").modal("hide");
+
+                if (hasLanguage = true) {
+                     url = '@Url.Action("List","Calendar")' + `?filterLanguageId =${e}`;
+                } else {
+                    url = '@Url.Action("List","Calendar")';
+                }
+                   window.location.href = url;
+               });
+           });
+
+        $("button[data-click=update]").click(function () {
+            var btn = $(this);
+            var itemId = $(this).data("id");
+            onClickShowModal(btn, '@Url.Action("Update", "Calendar")', { "id": itemId }, function (e) {
+                $("#modal-place").modal("hide");
+                var url = '@Url.Action("List","Calendar")' + `?filterLanguageId=${e}`;
+                window.location.href = url;
+            });
+        });
+
+        $("button[data-click=delete]").click(function () {
+            var btn = $(this);
+            var itemId = $(this).data("id");
+            onClickShowModal(btn, '@Url.Action("Delete", "Calendar")', { "id": itemId }, function () {
+                $("#modal-place").modal("hide");
+                window.location.reload();
+            });
+        });
+
+        $("#FilterLanguageId").change(function () {
+                var langId = $(this).val();
+                window.location.href = '@Url.Action("List","Calendar")' + `?filterLanguageId=${langId}`;
+        });
+
+    </script>
+}

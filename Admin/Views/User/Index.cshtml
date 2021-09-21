@@ -1,0 +1,117 @@
+﻿@model Sepidar.Framework.ListResult<Sepidar.Admin.Models.UserModel>
+
+@{
+    ViewData["Title"] = "User";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+    <div class="col-md-6 text-right">
+        <button type="button" class="btn btn-info" id="btn-new-user">
+            <span class="fa fa-plus"></span>&nbsp;New User
+        </button>
+    </div>
+</div>
+<hr />
+<table class="table table-hover table-striped">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">FullName</th>
+            <th scope="col">UserName</th>
+            <th scope="col">Mobile Number</th>
+            <th scope="col">Email</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model.Data)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.FullName</td>
+                <td>@item.Username</td>
+                <td>@item.MobileNumber</td>
+                <td>@item.Email</td>
+
+                <td class="text-right">
+                    <button type="button" class="btn btn-sm btn-link text-danger" data-role="delete-user" data-item-id="@item.Id">
+                        <span class="fa fa-trash"></span>
+                    </button>
+                    <button type="button" class="btn btn-sm btn-link text-indigo" data-click="edit-user" data-item-id="@item.Id">
+                        <span class="fa fa-edit"></span>
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="6">
+                <ul class="pagination">
+                    @{
+                        var pageCount = Model.TotalCount / Model.PageSize;
+                        if (Model.TotalCount % Model.PageSize > 0)
+                            pageCount++;
+
+                        <li data-page="1">
+                            <a asp-area="" asp-controller="User" class="" asp-action="Index" asp-route-pageNumber="1">First</a>
+                        </li>
+
+                        for (int pageNumber = 1; pageNumber <= pageCount; pageNumber++)
+                        {
+                            <li data-page="@pageNumber">
+                                @if (Model.PageNumber == pageNumber)
+                                {
+                                    <a asp-area="" asp-controller="User" class="btn btn-info" asp-action="Index" asp-route-pageNumber="@pageNumber">@pageNumber</a>
+                                }
+                                else
+                                {
+                                    <a asp-area="" asp-controller="User" asp-action="Index" asp-route-pageNumber="@pageNumber">@pageNumber</a>
+                                }
+                            </li>
+                        }
+
+                        <li data-page="@pageCount">
+                            <a asp-area="" asp-controller="User" class="" asp-action="Index" asp-route-pageNumber="@pageCount">Last</a>
+                        </li>
+                    }
+                </ul>
+            </td>
+        </tr>
+    </tfoot>
+
+</table>
+
+<input type="hidden" name="ActiveLink" id="ActiveLink" data-parent="home" data-current="Users" />
+
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#btn-new-user").click(function () {
+                var btn = $(this);
+                openModalWithFile(btn, '@Url.Action("Create","User")', null, function () { window.location.reload(); });
+            });
+
+            $("button[data-role=delete-user]").click(function () {
+                var url = '@Url.Action("Delete","user")';
+                var userId = $(this).data("item-id");
+                var data = { "id": userId };
+                onClickShowModal($(this), url, data, function () { window.location.reload(); });
+            });
+
+            $("button[data-click=edit-user]").click(function () {
+                var url = '@Url.Action("Update","user")';
+                var userId = $(this).data("item-id");
+                var data = { "id": userId };
+                var btn = $(this);
+                onClickShowModal(btn, url, data, function () { window.location.reload(); });
+            });
+        });
+    </script>
+}
+

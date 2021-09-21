@@ -1,0 +1,66 @@
+﻿@section Model{
+    @model IEnumerable<Sepidar.Admin.Models.ContentModel>
+}
+
+@{
+    Layout = "/Views/Shared/_EmptyList.cshtml";
+    ViewBag.Title = "Content";
+}
+
+@if (Sepidar.Admin.Config.HasLanguageInCalendar)
+{
+    @section Filters {
+        @await Html.PartialAsync("../Shared/_FilterLanguageDropdown.cshtml", (long)ViewBag.FilterLanguageId)
+    }
+}
+
+@section RowHeaders {
+    <th scope="col">OrderNumber</th>
+    <th scope="col">Title</th>
+    <th scope="col">IsActive</th>
+    <th scope="col"></th>
+}
+
+@section Rows {
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.OrderNumber</td>
+            <td>@item.Title</td>
+            <td><input type="checkbox" @(item.IsActive ? "checked=checked" : "") onclick="return false;" /></td>
+            <td class="text-right">
+                <button type="button" class="btn btn-link text-indigo" data-click="update" data-id="@item.Id"><span class="fa fa-edit"></span></button>
+            </td>
+        </tr>
+    }
+}
+
+@section ActiveMenu{
+    <input type="hidden" name="ActiveLink" id="ActiveLink" data-parent="home" data-current="Content" />
+}
+
+@section ListScripts{
+
+    <script type="text/javascript">
+
+        $("#FilterLanguageId").change(function () {
+            var langId = $(this).val();
+            window.location.href = '@Url.Action("List","Content")' + `?filterLanguageId=${langId}`;
+        });
+
+          $("button[data-click=update]").click(function () {
+            var btn = $(this);
+            var itemId = $(this).data("id");
+            var url = '@Url.Action("Update", "Content")';
+            var data = { "id": itemId };
+             openModalWithFile(btn, url, data, function (e) {
+                $("#modal-place").modal("hide");
+                var url = '@Url.Action("List","Content")' + `?filterLanguageId=${e}`;
+                window.location.href = url;
+            }, function () {
+                prepareCkEditor();
+            });
+        });
+
+    </script>
+}
